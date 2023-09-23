@@ -1,0 +1,38 @@
+
+
+/* Style du conteneur du formulaire */
+.form-container {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Style du champ de recherche */
+input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Style du bouton de recherche avec la classe "btn-search" */
+button.btn-search {
+    background-color: #66CDAA;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-left: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Style de l'icône de recherche à l'intérieur du bouton */
+button.btn-search i {
+    margin-right: 5px;
+}
+
+/* Style au survol du bouton de recherche */
+button.btn-search:hover {
+    background-color: #FF5722;
+}

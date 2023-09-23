@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<!-- ... -->
+
+<head>
+   <!-- basic -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <!-- mobile metas -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+   <!-- site metas -->
+   <title>Pluto - Responsive Bootstrap Admin Panel Templates</title>
+   <meta name="keywords" content="">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <!-- Required meta tags-->
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <meta name="description" content="Colorlib Templates">
+   <meta name="author" content="Colorlib">
+   <meta name="keywords" content="Colorlib Templates">
+   <!-- site icon -->
+   <link rel="icon" href="images/fevicon.png" type="image/png" />
+   <!-- bootstrap css -->
+   <link rel="stylesheet" href="css/bootstrap.min.css" />
+   <!-- site css -->
+   <link rel="stylesheet" href="style.css" />
+   <!-- responsive css -->
+   <link rel="stylesheet" href="css/responsive.css" />
+   <!-- color css -->
+   <link rel="stylesheet" href="css/colors.css" />
+   <!-- select bootstrap -->
+   <link rel="stylesheet" href="css/bootstrap-select.css" />
+   <!-- scrollbar css -->
+   <link rel="stylesheet" href="css/perfect-scrollbar.css" />
+   <!-- custom css -->
+   <link rel="stylesheet" href="css/custom.css" />
+   <!-- calendar file css -->
+   <link rel="stylesheet" href="js/semantic.min.css" />
+
+
+
+   <link rel="stylesheet" type="text/css" href="Formulaire/formulaire.css">
+
+   <script src="Formulaire/formulaireJs.js"></script>
+
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+
+
+
+
+   <!-- jQuery -->
+   <!--
+   <script src="js/jquery.min.js"></script>
+   <script src="js/popper.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   <-- Datepicker CSS -->
+   <!--
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.css">
+   rest of your stylesheets ... -->
+
+
+
+
+
+
+
+
+</head>
+<body class="inner_page widgets">
+<div class="full_container">
+   <div class="inner_container">
+      <!-- Sidebar  -->
+      <nav id="sidebar">
+         <div class="sidebar_blog_1">
+            <div class="sidebar-header">
+
+            </div>
+            <div class="sidebar_user_info">
+               <div class="icon_setting"></div>
+               <div class="user_profle_side">
+                  <div class="user_img"><img class="img-responsive" src="images/layout_img/user_img.jpg" alt="#" /></div>
+                  <div class="user_info">
+                     <h6 th:text="${userRole}"></h6>
+                     <h6 th:text="${username}"></h6>
+                     <p><span class="online_animation"></span> Online</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="sidebar_blog_2">
+            <h4>General</h4>
+            <ul class="list-unstyled components">
+               <li class="active">
+               <li><a th:href="@{/dashboard}"><i class="fa fa-home" aria-hidden="true"></i>  <span>Dashboard</span></a></li>
+
+               </li>
+               <li><a th:href="@{/demandeStage}"><i class="fa fa-pencil"></i><span>Demander un stage</span></a></li>
+
+
+
+                  <ul class="collapse list-unstyled" id="apps">
+
+                  </ul>
+               </li>
+               <li><a href="price.html"><i class="fa fa-briefcase blue1_color"></i> <span>Pricing Tables</span></a></li>
+               <li>
+                  <a href="contact.html">
+                     <i class="fa fa-paper-plane red_color"></i> <span>Contact</span></a>
+               </li>
+               <li class="active">
+                  <a href="#additional_page" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-clone yellow_color"></i> <span>Additional Pages</span></a>
+                  <ul class="collapse list-unstyled" id="additional_page">
+                     <li>
+                        <a href="profile.html">> <span>Profile</span></a>
+                     </li>
+                     <li>
+                        <a href="project.html">> <span>Projects</span></a>
+                     </li>
+                     <li>
+                        <a href="login.html">> <span>Login</span></a>
+                     </li>
+                     <li>
+                        <a href="404_error.html">> <span>404 Error</span></a>
+                     </li>
+                  </ul>
+               </li>
+               <li><a href="map.html"><i class="fa fa-map purple_color2"></i> <span>Map</span></a></li>
+               <li><a href="charts.html"><i class="fa fa-bar-chart-o green_color"></i> <span>Charts</span></a></li>
+               <li><a href="settings.html"><i class="fa fa-cog yellow_color"></i> <span>Settings</span></a></li>
+            </ul>
+         </div>
+      </nav>
+      <!-- end sidebar -->
+      <!-- right content -->
+      <div id="content">
+         <!-- topbar -->
+         <div class="topbar">
+            <nav class="navbar navbar-expand-lg navbar-light">
+               <div class="full">
+                  <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
+
+                  <div class="right_topbar">
+                     <div class="icon_info">
+                        <ul>
+                 <li ><a href="#"  id="notificationIcon" ><i class="fa fa-bell-o"></i><span class="badge" id="notificationBadge"></span></a></li>
+
+                           <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge" >3</span></a></li>
+                        </ul>
+                        <ul class="user_profile_dd">
+                           <li>
+                              <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="images/layout_img/user_img.jpg" alt="#" /><span class="name_user"  th:text="${username}"></span></a>
+                              <div class="dropdown-menu">
+                                 <a class="dropdown-item" href="profile.html">My Profile</a>
+                                 <form method="post" th:action="@{/logout}" >
+                                    <button type="submit" class="logout-button">
+                                       <span>Log Out</span> <i class="fa fa-sign-out"></i>
+                                    </button>
+                                 </form>
+                              </div>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </nav>
+         </div>
+         <!-- end topbar -->
+         <!-- dashboard inner -->
+         <div class="midde_cont">
+            <div class="container-fluid">
+               <div class="row column_title">
+                  <div class="col-md-12">
+                     <div class="page_title">
+                        <img src="images/icon_form.png" class="iconF" alt="">
+                        <h2>Inscrire Pour un Stage</h2>
+                     </div>
+                  </div>
+               </div>
+
+
+               <div id="successAlert" class="alert alert-success" style="display: none;">Votre demande a bien été enregistrée.</div>
+
+
+               <div class="main">
+                  <section class="signup">
+                     <!-- <img src="images/signup-bg.jpg" alt=""> -->
+                     <div class="container">
+                        <div class="signup-content">
+                           <form  th:action="@{/demandeStage}"   th:object="${demande}" method="post" class="signup-form" enctype="multipart/form-data">
+                              <div class="form-row">
+                                 <div class="form-group">
+                                    <label for="nom">Nom</label>
+                                    <input type="text" class="form-input" id="nom" placeholder="Nom"  th:field="${demande.nom}"  required/>
+                                 </div>
+                                 <div class="form-group">
+                                    <label for="prenom">Prenom</label>
+                                    <input type="text" class="form-input" id="prenom"  placeholder="Prénom"  th:field="${demande.prenom}"  required/>
+                                 </div>
+                              </div>
+                              <div class="form-row">
+                                 <div class="form-group form-icon">
+                                    <label for="date_naissance">Date Naissance</label>
+                                    <div class="input-group date">
+                                       <input type="date" class="form-control" name="date_naissance" id="date_naissance" pattern="yyyy-MM-dd"  th:field="${demande.date_naissance}" required >
+                                       <div class="input-group-append">
+
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="form-group form-radio">
+                                    <label>Genre</label>
+                                    <div class="form-flex">
+                                       <label>
+                                          <input type="radio" name="genre" value="masculin" checked="checked"  placeholder="Genre"   th:field="${demande.genre}" required/>
+                                          Masculin
+                                       </label>
+                                       <label>
+                                          <input type="radio" name="genre" value="feminin"  placeholder="Genre"  th:field="${demande.genre}" required/>
+                                          Feminin
+                                       </label>
+                                    </div>
+                                 </div>
+
+                              </div>
+                              <div class="form-row">
+                                 <div class="form-group">
+                                    <label for="tel">Téléphone</label>
+                                    <input type="text" class="form-input" name="tel" id="tel"  placeholder="Tel" th:field="${demande.tel}" required/>
+                                 </div>
+                                 <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-input" name="email" id="email"   placeholder="Email"  th:field="${demande.email}" required/>
+                                 </div>
+                                </div>
+                                 <div class="form-row">
+                                    <div class="form-group">
+                                       <label for="filiere">Filière</label>
+                                       <input type="text" class="form-input" name="filiere" id="filiere"    placeholder="Filiere" th:field="${demande.filiere}" required/>
+                                    </div>
+                                    <div class="form-group">
+                                       <label for="etablissement">Etablissement</label>
+                                       <input type="text" class="form-input" name="etablissement" id="etablissement"   placeholder="Etablissement"  th:field="${demande.etablissement}" required />
+                                    </div>
+                                 </div>
+
+                              <div class="form-row">
+                                 <div class="form-group">
+                                    <label for="type">Type Stage </label>
+                                    <div class="select-list">
+                                       <select name="type" id="type"   placeholder="Type"  th:field="${demande.type}" required>
+                                          <option value="PFA">PFA</option>
+                                          <option value="PFE">PFE</option>
+                                       </select>
+                                    </div>
+                                 </div>
+                                 <div class="form-group">
+                                    <label for="niveau_scolaire">Niveau Scolaire</label>
+                                    <input type="text" class="form-input" name="niveau_scolaire" id="niveau_scolaire"    placeholder="Niveau Scolaire"  th:field="${demande.niveau_scolaire}" required/>
+                                 </div>
+                              </div>
+                                    <div class="form-row">
+                                       <div class="form-group form-icon">
+                                          <label for="dateDebut">Date Début</label>
+                                          <div class="input-group date">
+                                             <input type="date" class="form-control" name="dateDebut" id="dateDebut" pattern="yyyy-MM-dd"  th:field="${demande.dateDebut}" required>
+                                             <div class="input-group-append">
+
+                                             </div>
+                                          </div>
+                                       </div>
+                                          <div class="form-group form-icon">
+                                             <label for="dateFin">Date Fin</label>
+                                             <div class="input-group date">
+                                                <input type="date" class="form-control" name="dateFin" id="dateFin"  pattern="yyyy-MM-dd" th:field="${demande.dateFin}" required >
+                                                <div class="input-group-append">
+
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="form-row">
+                                       <div class="form-group-file">
+                                          <label for="cvFile">Importer CV:</label>
+                                          <input type="file" class="form-input-file" name="cvFile" id="cvFile" accept=".pdf,.doc,.docx" th:field="${demande.cvFile}" required >
+                                       </div>
+                                       <div class="form-group-file">
+                                          <label for="lettreMotivationFile">Lettre Motivation</label>
+                                          <input type="file" class="form-input-file" name="lettreMotivationFile" id="lettreMotivationFile" accept=".pdf,.doc,.docx"  th:field="${demande.lettreMotivationFile}" required>
+                                       </div>
+                                       </div>
+                                    <div class="form-group">
+                                       <input type="submit" name="submit" id="submit" class="form-submit" value="Submit"/>
+                                    </div>
+                           </form>
+
+                           <!-- Afficher la notification si l'attribut "notification" est présent -->
+
+                           <!-- Ajoutez ceci à votre fichier DemandeStage.html -->
+
+
+
+                           </form>
+
+                           <!-- Afficher la notification si l'attribut "notification" est présent -->
+                           <div th:if="${notification }">
+                              <div class="notification-box">
+                                 <p>Votre demande a bien été enregistrée.</p>
+                                 <button class="close-notification" onclick="closeNotification()">Fermer</button>
+                              </div>
+                           </div>
+
+                        </div>
+                   </div>
+                  </section>
+               </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+               <!--formulaire-- End>
+
+
+                                    <-- row -->
+               <div class="row column1">
+                  <div class="col-md-6 col-lg-4">
+                     <div class="full white_shd margin_bottom_30">
+
+                     </div>
+                  </div>
+                  <div class="col-md-6 col-lg-4">
+                     <div class="full white_shd margin_bottom_30">
+
+
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-6 col-lg-4">
+                  <div class="full white_shd margin_bottom_30">
+
+                  </div>
+               </div>
+            </div>
+            <!-- end row -->
+            <!-- row -->
+
+         </div>
+      </div>
+   </div>
+   <!-- jQuery -->
+   <script src="js/jquery.min.js"></script>
+   <script src="js/popper.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   <!-- wow animation -->
+   <script src="js/animate.js"></script>
+   <!-- select country -->
+   <script src="js/bootstrap-select.js"></script>
+   <!-- owl carousel -->
+   <script src="js/owl.carousel.js"></script>
+   <!-- chart js -->
+   <script src="js/Chart.min.js"></script>
+   <script src="js/Chart.bundle.min.js"></script>
+   <script src="js/utils.js"></script>
+   <script src="js/analyser.js"></script>
+   <!-- nice scrollbar -->
+   <script src="js/perfect-scrollbar.min.js"></script>
+   <script>
+      var ps = new PerfectScrollbar('#sidebar');
+   </script>
+   <!-- custom js -->
+   <script src="js/custom.js"></script>
+   <!-- calendar file css -->
+   <script src="js/semantic.min.js"></script>
+   <script></script>
+
+
+</div>
+
+<!-- ... (rest of your HTML content) ... -->
+<!-- Datepicker JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.js"></script>
+<!-- rest of your scripts -->
+<!--
+<script>
+   $(document).ready(function() {
+      $('#date_naissance').datepicker({
+         format: 'MM-DD-YYYY', // Format de la date
+         autoclose: true
+      });
+   });
+</script>
+!-->
+<!--
+<script>
+   $(document).ready(function() {
+      $('#date_naissance').datepicker({
+         format: 'DD-MM-YYYY',
+         autoclose: true
+      });
+
+      $('#dateDebut').datepicker({
+         format: 'DD-MM-YYYY',
+         autoclose: true
+      });
+
+      $('#dateFin').datepicker({
+         format: 'DD-MM-YYYY',
+         autoclose: true
+      });
+   });
+</script>
+!-->
+<!-- Reste de votre code HTML -->
+
+<!-- JavaScript pour gérer la notification après l'envoi du formulaire -->
+
+<!--
+<script>
+   document.addEventListener("DOMContentLoaded", function () {
+      const submitButton = document.getElementById("submit");
+      const notificationBadge = document.getElementById("notificationBadge");
+
+      submitButton.addEventListener("click", function () {
+         // Ici, vous pouvez ajouter toute la logique pour soumettre le formulaire et enregistrer la demande
+         // ...
+
+         // Une fois que le formulaire est soumis avec succès, incrémentez le compteur et affichez la notification
+         incrementNotificationCount();
+      });
+
+      function incrementNotificationCount() {
+         const notificationBox = document.querySelector(".notification-box");
+         const notificationCount = parseInt(notificationBadge.textContent) || 0;
+         notificationBadge.textContent = notificationCount + 1;
+         notificationBox.style.display = "block";
+      }
+
+      function closeNotification() {
+         const notificationBox = document.querySelector(".notification-box");
+         notificationBox.style.display = "none";
+      }
+   });
+
+</script>
+!-->
+<!--
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+const submitButton = document.getElementById("submit");
+const notificationBadge = document.getElementById("notificationBadge");
+
+submitButton.addEventListener("click", function () {
+// Ici, vous pouvez ajouter toute la logique pour soumettre le formulaire et enregistrer la demande
+// ...
+
+// Une fois que le formulaire est soumis avec succès, incrémentez le compteur et affichez la notification
+incrementNotificationCount();
+closeNotification(); // Ajoutez cette ligne pour fermer la notification après un certain temps
+});
+
+function incrementNotificationCount() {
+const notificationBox = document.querySelector(".notification-box");
+const notificationCount = parseInt(notificationBadge.textContent) || 0;
+notificationBadge.textContent = notificationCount + 1;
+notificationBox.style.display = "block";
+}
+
+function closeNotification() {
+const notificationBox = document.querySelector(".notification-box");
+setTimeout(function () {
+notificationBox.style.display = "none";
+}, 60000); // Ferme la notification après 3 secondes (ajustez cette valeur selon vos besoins)
+}
+});
+</script>
+!-->
+
+<!-- ... (autres parties de votre code HTML) ... -->
+
+<!-- JavaScript pour gérer la notification après l'envoi du formulaire -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+
+<script>
+   document.addEventListener("DOMContentLoaded", function () {
+      const notificationIcon = document.getElementById("notificationIcon");
+      const notificationBadge = document.getElementById("notificationBadge");
+
+      let notificationCount = 0;
+
+      notificationIcon.addEventListener("click", function () {
+         if (notificationCount > 0) {
+            alert("Votre demande a bien été enregistrée.");
+            notificationCount = 0;
+            notificationBadge.textContent = notificationCount;
+         }
+      });
+
+      // Vous pouvez appeler cette fonction chaque fois que vous enregistrez une demande
+      function incrementNotificationCount() {
+         notificationCount++;
+         notificationBadge.textContent = notificationCount;
+      }
+
+      // Appel de la fonction pour incrémenter le compteur lorsqu'une demande est enregistrée
+      // Ici, vous devez appeler cette fonction après avoir enregistré la demande avec succès
+      incrementNotificationCount();
+   });
+
+   function closeNotification() {
+      const notificationBox = document.querySelector(".notification-box");
+      notificationBox.style.display = "none";
+   }
+</script>
+!-->
+<!--
+<script>
+   document.addEventListener("DOMContentLoaded", function () {
+      const submitButton = document.getElementById("submit");
+
+      submitButton.addEventListener("click", function () {
+         alert("Votre demande a bien été enregistrée.");
+      });
+   });
+</script>
+!-->
+
+
+<!-- Assurez-vous que jQuery est inclus dans votre page -->
+
+<!-- Votre code JavaScript -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+<script>
+   document.addEventListener("DOMContentLoaded", function () {
+      const notificationIcon = document.getElementById("notificationIcon");
+      const notificationBadge = document.getElementById("notificationBadge");
+
+      let notificationCount = 0;
+
+      notificationIcon.addEventListener("click", function () {
+         if (notificationCount > 0) {
+            alert("Votre demande a bien été enregistrée.");
+            notificationCount = 0;
+            notificationBadge.textContent = notificationCount;
+         }
+      });
+
+      // Vous pouvez appeler cette fonction chaque fois que vous enregistrez une demande
+      function incrementNotificationCount() {
+         notificationCount++;
+         notificationBadge.textContent = notificationCount;
+      }
+
+      // Appel de la fonction pour incrémenter le compteur lorsqu'une demande est enregistrée
+      // Ici, vous devez appeler cette fonction après avoir enregistré la demande avec succès
+      incrementNotificationCount();
+   });
+
+   function closeNotification() {
+      const notificationBox = document.querySelector(".notification-box");
+      notificationBox.style.display = "none";
+   }
+</script>
+
+----!-->
+
+<script>
+   /*$(document).ready(function () {
+      // Code JavaScript pour afficher l'alerte de succès
+      if (window.location.href.indexOf("success=true") > -1) {
+         $("#successAlert").show();
+      }
+   });
+   function closeNotification() {
+      // Ciblez l'élément avec la classe notification-box et masquez-le
+      $(".notification-box").hide();
+   }*/
+   $(document).ready(function () {
+      // Code JavaScript pour afficher l'alerte de succès
+      if (window.location.href.indexOf("success=true") > -1) {
+         $("#successAlert").show();
+
+         // Ajouter un délai de 2 secondes avant de masquer l'alerte
+         setTimeout(function () {
+            $("#successAlert").hide();
+         }, 2000); // 2000 millisecondes équivalent à 2 secondes
+      }
+   });
+
+
+
+</script>
+
+
+
+</body>
+</html>
+
