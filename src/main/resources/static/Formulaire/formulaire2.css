@@ -1,0 +1,251 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply some basic styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+/*.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    height: 400px;
+}*/
+.container {
+
+
+
+    max-width: 500px; /* Adjust the maximum width as needed */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the form */
+.signup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    flex: 1;
+    margin-right: 15px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-radio {
+    flex: 1;
+}
+
+.form-flex {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.form-text {
+    margin-top: 15px;
+}
+
+.add-info-link {
+    text-decoration: none;
+    color: #428bca;
+    cursor: pointer;
+}
+
+.add_info {
+    display: none;
+    margin-top: 10px;
+}
+
+.select-list select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-submit {
+    background-color: #66CDAA;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style for error messages (optional) */
+.error-message {
+    color: #d9534f;
+    margin-top: 5px;
+}
+
+
+/* Nouveaux styles pour les labels d'importation de CV et de lettre de motivation */
+.form-group-file {
+    flex: 1;
+    margin-right: 15px;
+}
+
+.form-group-file label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: flex;
+}
+
+.form-input-file {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* ... (votre CSS existant) ... */
+
+/* ... (vos styles existants) ... */
+
+/* Appliquer le style à l'élément form-group form-icon */
+/*.form-group.form-icon {
+    border: 1px solid #333333;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Appliquer le style au champ de saisie de l'élément form-group form-icon */
+/*.form-group.form-icon .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #333333;
+    border-radius: 5px;
+}
+
+
+/* ... (vos styles existants) ... */
+
+/* Appliquer la couleur de bordure au champ de saisie de l'élément form-group form-icon */
+/*.form-group.form-icon .form-control {
+    border: 1px solid #333333;
+    border-radius: 5px;
+}
+
+
+
+/* ... (vos styles existants) ... */
+
+/* Appliquer la couleur de bordure au champ de saisie et à l'icône */
+/*.form-group.form-icon .form-control,
+.form-group.input-group-text {
+    border: 1px solid #333333;
+    border-radius: 5px;
+}
+/* ... (vos styles existants) ... */
+
+/* Appliquer le style au label et à l'icône sans séparation */
+
+/*.input-group-text {
+    border: 1px solid #333333;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+/* ... (votre CSS existant) ... */
+
+/* ... (votre CSS existant) ... */
+
+.iconF{
+    width: 50px; /* Largeur souhaitée */
+    height:50px;
+    /*float: left; /* Faire flotter l'icône à gauche */
+    margin-right: 10px; /* Ajoute/* La hauteur s'ajuste automatiquement pour conserver les proportions */
+}
+
+/*.page_title {
+    text-align: center;
+    margin-bottom: 20px;
+}*/
+
+/*.page_title img {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    margin-right: 10px;
+}*/
+
+
+/*.page_title h2 {
+    display: inline-block; /* Afficher le titre en ligne avec l'icône */
+   /* vertical-align: middle; /* Aligner verticalement le titre avec l'icône */
+   /* color: #333; /* Couleur du texte du titre */
+   /* font-size: 24px; /* Taille de police du titre */
+    /*font-family: 'Times New Roman', serif; /* Police de caractères du titre */
+   /* font-weight: bold; /* Épaisseur de la police */
+   /* text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
+    color: #333333;
+}*/
+
+
+
+
+/*.page_title h2 {*/
+
+
+    /*display: inline-block;
+
+
+
+    vertical-align: middle;
+    color: #333;
+    font-size: 24px;
+
+
+    font-family: 'Times New Roman', serif;
+    font-weight: bold;
+    text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0, 0, 0, 0.15);
+
+
+    color: #333333;
+}*/
+
+/* Other CSS styles (your existing styles) ... */
+
+
+
+
+
+.page_title i {
+    margin-right: 10px; /* Espacement entre l'icône et le texte, ajustez selon vos besoins */
+}
+
+
+.custom_title {
+    color: #333; /* Couleur du texte du titre */
+    font-family: 'Times New Roman', serif; /* Police de caractères du titre */
+    font-weight: bold; /* Épaisseur de la police */
+    text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
+}
+
