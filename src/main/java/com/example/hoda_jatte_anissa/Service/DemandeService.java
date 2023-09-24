@@ -28,6 +28,8 @@ public interface DemandeService {
 
     List<Demande> rechercherDemandesParNom(String nomRecherche);
 
+    public List<Demande> rechercherDemandesParEtablissement(String etablissementRecherche);
+
 
     // Ajoutez d'autres méthodes nécessaires
 

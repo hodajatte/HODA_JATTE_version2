@@ -73,7 +73,7 @@
                 </div>
             </div>
             <div class="sidebar_blog_2">
-
+                <h4>Gestion_Stages_Stagiaires</h4>
                 <ul class="list-unstyled components">
                     <li class="active">
                     <li><a th:href="@{/dashboardAdmin}"><i class="fa fa-home" aria-hidden="true"></i> <span>Dashboard</span></a></li>
@@ -172,9 +172,10 @@
                     <div class="row column_title">
                         <div class="col-md-12">
                             <div class="page_title">
-                                <form th:action="@{/recherche}" method="get">
+                                <form action="/rechercher-demandes-acceptees" method="GET">
                                     <div>
-                                        <input type="text" name="q" th:value="${query}" placeholder="Rechercher...">
+                                        <input type="text"    name="etablissement" placeholder="Rechercher...">
+
                                         <!-- Ajouter l'icône de recherche à l'intérieur du bouton -->
                                         <button type="submit" class="btn-search">
                                             <i class="fas fa-search"></i> Rechercher

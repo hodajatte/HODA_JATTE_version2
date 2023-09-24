@@ -125,6 +125,21 @@ public class AdminController {
     }
 
 
+    @GetMapping("/rechercher-demandes-acceptees")
+    public String rechercherDemandesParEtablissement(@RequestParam(name = "etablissement")String etablissementRecherche, Model model) {
+        List<Demande> resultatsRechercheAcceptees = demandeService.rechercherDemandesParEtablissement(etablissementRecherche);
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String userRole = authentication.getAuthorities().iterator().next().getAuthority();
+        String username = authentication.getName();
+
+        model.addAttribute("userRole", userRole);
+        model.addAttribute("username", username);
+        model.addAttribute("resultatsRechercheAcceptees", resultatsRechercheAcceptees);
+
+        return "resultats-recherches-acceptees";
+    }
+
 
 
 }
