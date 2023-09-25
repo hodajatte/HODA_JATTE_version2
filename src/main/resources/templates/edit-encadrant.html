@@ -114,23 +114,28 @@
           <div class="container">
             <h2>Editer encadrant</h2>
             <form th:action="@{/updateEncadrant}"  th:object="${encadrant}" method="post">
+              <input type="hidden" th:field="*{id}" />
+              <div class="form-group">
               <label for="nom">Nom :</label>
-              <input type="text" id="nom" name="nom" th:field="${encadrant.nom}"   required >
+              <input type="text" id="nom" name="nom" th:field="*{nom}"   required >
+              </div>
+              <div class="form-group">
               <label for="prenom">Prénom :</label>
-              <input type="text" id="prenom" name="prenom"   th:field="${encadrant.prenom}" required>
-
+              <input type="text" id="prenom" name="prenom"  th:field="*{prenom}" required>
+              </div>
+              <div class="form-group">
               <label>Genre :</label>
-              <input type="radio" id="genreFeminin" name="genre" value="Féminin"  th:field="${encadrant.genre}">
+              <input type="radio" id="genreFeminin" name="genre" value="Féminin"  th:field="*{genre}">
               <label for="genreFeminin">Féminin</label>
 
-              <input type="radio" id="genreMasculin" name="genre" value="Masculin"  th:field="${encadrant.genre}">
+              <input type="radio" id="genreMasculin" name="genre" value="Masculin"  th:field="*{genre}">
               <label for="genreMasculin">Masculin</label>
-
+              </div>
               <label for="email">Email :</label>
-              <input type="email" id="email" name="email"   th:field="${encadrant.email}" required>
+              <input type="email" id="email" name="email"   th:field="*{email}" required>
 
               <label for="specialite">Spécialité :</label>
-              <select id="specialite" name="specialite"    th:field="${encadrant.specialite}" required>
+              <select id="specialite" name="specialite"    th:field="*{specialite}" required>
                 <option value="Génie informatique">Génie informatique</option>
                 <option value="Génie industriel">Génie industriel</option>
                 <option value="Génie electrique">Génie Electrique</option>

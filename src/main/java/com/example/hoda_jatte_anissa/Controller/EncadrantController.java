@@ -39,8 +39,20 @@ public class EncadrantController {
 
     @PostMapping("/updateEncadrant")
     public String updateEncadrant(@ModelAttribute Encadrant encadrant) {
-        encadrantService.saveEncadrant(encadrant);
-        return "redirect:/liste-encadrants"; // Redirigez vers la page de liste des encadrants après la mise à jour
+        Encadrant existingEncadrant = encadrantService.getEncadrantById(encadrant.getId());
+
+        if (existingEncadrant != null) {
+            // Copiez les nouvelles données de l'encadrant existant
+            existingEncadrant.setNom(encadrant.getNom());
+            existingEncadrant.setPrenom(encadrant.getPrenom());
+            existingEncadrant.setEmail(encadrant.getEmail());
+            existingEncadrant.setSpecialite(encadrant.getSpecialite());
+
+            // Enregistrez les modifications dans la base de données
+            encadrantService.saveEncadrant(existingEncadrant);
+        }
+
+        return "redirect:/liste-encadrants";  // Redirigez vers la page de liste des encadrants après la mise à jour
     }
 
     /*Enregistrer l'encadrant edité */
