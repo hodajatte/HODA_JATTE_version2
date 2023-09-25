@@ -111,13 +111,13 @@
             <a href="#additional_page" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-clone yellow_color"></i> <span>Additional Pages</span></a>
             <ul class="collapse list-unstyled" id="additional_page">
               <li>
-                <a href="../profile.html">> <span>Profile</span></a>
+                <a href="../profile.html"><span>Profile</span></a>
               </li>
               <li>
-                <a href="../project.html">> <span>Projects</span></a>
+                <a href="../project.html"><span>Projects</span></a>
               </li>
               <li>
-                <a href="../login.html">> <span>Login</span></a>
+                <a href="../login.html"><span>Login</span></a>
               </li>
               <li>
                 <a href="../404_error.html">> <span>404 Error</span></a>
@@ -200,10 +200,12 @@
             <th>Date Début</th>
             <th>Date Fin</th>
             <th>Date De Naissance</th>
+            <th>Etat</th>
+
           </tr>
           </thead>
           <tbody>
-          <tr th:each="demande :${resultatsRechercheAcceptees}">
+          <tr th:each="demande:${resultatsRechercheAcceptees}">
             <td th:text="${demande.id}"></td>
             <td th:text="${demande.nom}"></td>
             <td th:text="${demande.prenom}"></td>
@@ -213,7 +215,7 @@
             <td th:text="${demande.dateDebut}"></td>
             <td th:text="${demande.dateFin}"></td>
             <td th:text="${demande.date_naissance}"></td>
-            <td th:text="${demande.etat}"></td>
+          </tr>
           </tr>
 
 

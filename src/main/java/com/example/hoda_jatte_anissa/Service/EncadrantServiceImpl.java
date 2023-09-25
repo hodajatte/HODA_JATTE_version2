@@ -26,13 +26,18 @@ public class EncadrantServiceImpl implements EncadrantService{
     }
     @Override
     public void deleteEncadrant(Long id) {
-
         encadrantRepository.deleteById(id);
     }
 
 
+@Override
     public List<Encadrant> rechercherEncadrantParSpecialite(String SpecialiteRecherche) {
         // Utilisez votre repository pour rechercher les demandes par nom
         return encadrantRepository.findBySpecialiteContaining(SpecialiteRecherche);
+    }
+
+@Override
+    public Encadrant updateEncadrant(Encadrant encadrant) {
+        return encadrantRepository.save(encadrant);
     }
 }

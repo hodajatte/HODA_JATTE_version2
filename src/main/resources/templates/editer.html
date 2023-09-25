@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>editer encadrant</title>
+  <link rel="stylesheet" type="text/css" href="Formulaire/formulaire2.css">
+
+  <script src="Formulaire/formulaireJs.js"></script>
+</head>
+<body>
+<div id="successAlert" class="alert alert-success" style="display: none;">Encadrant a bien été enregistrée.</div>
+<div class="main">
+  <section class="signup">
+    <!-- <img src="images/signup-bg.jpg" alt=""> -->
+    <div class="container">
+      <div class="signup-content">
+        <form  th:action="@{/save-encadrant}"   th:object="${encadrant}" method="post" class="signup-form" >
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nom">Nom</label>
+              <input type="text" class="form-input" id="nom" placeholder="Nom"  th:field="${encadrant.nom}"  required/>
+            </div>
+            <div class="form-group">
+              <label for="prenom">Prenom</label>
+              <input type="text" class="form-input" id="prenom"  placeholder="Prénom"  th:field="${encadrant.prenom}"  required/>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group form-radio">
+              <label>Genre</label>
+              <div class="form-flex">
+                <label>
+                  <input type="radio" name="genre" value="masculin" checked="checked"  placeholder="Genre"   th:field="${encadrant.genre}" required/>
+                  Masculin
+                </label>
+                <label>
+                  <input type="radio" name="genre" value="féminin"  placeholder="Genre"  th:field="${encadrant.genre}" required/>
+                  Feminin
+                </label>
+              </div>
+            </div>
+
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-input" name="email" id="email"   placeholder="Email"  th:field="${encadrant.email}" required/>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="type">Spécialité </label>
+              <div class="select-list">
+                <select name="type" id="type"   placeholder="Type"  th:field="${encadrant.specialite}" required>
+                  <option value="Génie Informatique">Génie Informatique</option>
+                  <option value="Génie Civil">Génie Civil</option>
+                  <option value="Finance">Finance</option>
+                  <option value="Génie Electrique">Génie Electrique</option>
+                  <option value="Génie Industriel">Génie Industriel</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="submit" name="submit" id="submit" class="form-submit" value="Submit"/>
+          </div>
+        </form>
+
+        </form>
+
+        <!-- Afficher la notification si l'attribut "notification" est présent -->
+
+
+      </div>
+    </div>
+  </section>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>

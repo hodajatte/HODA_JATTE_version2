@@ -1,10 +1,7 @@
 package com.example.hoda_jatte_anissa.Controller;
-
 import com.example.hoda_jatte_anissa.Entity.Encadrant;
 import com.example.hoda_jatte_anissa.Service.EncadrantService;
-import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -35,19 +32,24 @@ public class EncadrantController {
 
     @GetMapping("/edit-encadrant/{id}")
     public String editEncadrant(@PathVariable Long id, Model model) {
-
         Encadrant encadrant = encadrantService.getEncadrantById(id);
         model.addAttribute("encadrant", encadrant);
         return "edit-encadrant";
     }
 
+    @PostMapping("/updateEncadrant")
+    public String updateEncadrant(@ModelAttribute Encadrant encadrant) {
+        encadrantService.saveEncadrant(encadrant);
+        return "redirect:/liste-encadrants"; // Redirigez vers la page de liste des encadrants après la mise à jour
+    }
 
     /*Enregistrer l'encadrant edité */
-    @PostMapping("/save-encadrant")
+
+    /*@PostMapping("/save-encadrant")
     public String saveEncadrant(@ModelAttribute Encadrant encadrant) {
         encadrantService.saveEncadrant(encadrant);
         return "redirect:/liste-encadrants";
-    }
+    }*/
 
     /*Supprimer Encadrant */
 

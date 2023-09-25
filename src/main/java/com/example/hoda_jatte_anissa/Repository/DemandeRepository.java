@@ -11,8 +11,9 @@ public interface DemandeRepository extends JpaRepository<Demande, Long> {
 
 
     List<Demande> findByNomContaining(String nom);
-
     List<Demande> findByEtablissementContaining(String etablissemntRecherche);
+
+    /*List<Demande> findByEtablissement(String etablissement);*/
 }
 
     // Ajoutez des méthodes personnalisées si nécessaire

@@ -27,8 +27,10 @@ public interface DemandeService {
     Resource loadLettreFile(Demande demande);
 
     List<Demande> rechercherDemandesParNom(String nomRecherche);
+    List<Demande>rechercherDemandesParEtablissement(String etablissementRecherche);
 
-    public List<Demande> rechercherDemandesParEtablissement(String etablissementRecherche);
+
+   /* List<Demande> rechercherParEtablissement(String etablissement);*/
 
 
     // Ajoutez d'autres méthodes nécessaires

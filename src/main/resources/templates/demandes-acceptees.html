@@ -172,10 +172,9 @@
                     <div class="row column_title">
                         <div class="col-md-12">
                             <div class="page_title">
-                                <form action="/rechercher-demandes-acceptees" method="GET">
+                                <form action="/rechercher-demandes-acceptees" method="get">
                                     <div>
-                                        <input type="text"    name="etablissement" placeholder="Rechercher...">
-
+                                        <input type="text"  name="etablissement" placeholder="Rechercher...">
                                         <!-- Ajouter l'icône de recherche à l'intérieur du bouton -->
                                         <button type="submit" class="btn-search">
                                             <i class="fas fa-search"></i> Rechercher
@@ -202,7 +201,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr th:each="etat : ${demandesAcceptees}">
+                            <tr th:each="etat: ${demandesAcceptees}">
                                 <td th:text="${etat.demande.id}"></td>
                                 <td th:text="${etat.demande.nom}"></td>
                                 <td th:text="${etat.demande.prenom}"></td>

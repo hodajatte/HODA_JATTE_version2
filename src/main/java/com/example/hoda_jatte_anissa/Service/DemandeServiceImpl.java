@@ -124,6 +124,10 @@ public class DemandeServiceImpl implements DemandeService {
         return demandeRepository.findByEtablissementContaining(etablissementRecherche);
     }
 
+   /* public List<Demande> rechercherParEtablissement(String etablissement) {
+        return demandeRepository.findByEtablissement(etablissement);
+    }*/
+
     public List<Demande> rechercherDemandesParNom(String Recherche) {
         // Utilisez votre repository pour rechercher les demandes par nom
         return demandeRepository.findByNomContaining(Recherche);

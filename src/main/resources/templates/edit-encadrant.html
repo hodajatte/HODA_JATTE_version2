@@ -41,518 +41,107 @@
 
 
 
-  <link rel="stylesheet" type="text/css" href="Formulaire/formulaire2.css">
 
-  <script src="Formulaire/formulaireJs.js"></script>
-  <!-- Exemple de lien vers un fichier CSS -->
+
+
+
 
 
 
   <!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
 
 
-<!-- css ListeDemande-->
+  <!-- css ListeDemande-->
   <link rel="stylesheet" href="ListeDemandes/ListeDemandeGeneral.css" />
 
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">-->
 
 
 
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
 
+    .container {
+      width: 50%;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
 
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
 
+    input[type="text"],
+    input[type="email"],
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
 
+    select {
+      height: 40px;
+    }
 
+    input[type="radio"] {
+      margin-right: 5px;
+    }
 
+    input[type="submit"] {
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
-
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
 
 
 </head>
-<body class="inner_page widgets">
-<div class="full_container">
-  <div class="inner_container">
-    <!-- Sidebar  -->
-    <nav id="sidebar">
-      <div class="sidebar_blog_1">
-        <div class="sidebar-header">
+          <div class="container">
+            <h2>Editer encadrant</h2>
+            <form th:action="@{/updateEncadrant}"  th:object="${encadrant}" method="post">
+              <label for="nom">Nom :</label>
+              <input type="text" id="nom" name="nom" th:field="${encadrant.nom}"   required >
+              <label for="prenom">Prénom :</label>
+              <input type="text" id="prenom" name="prenom"   th:field="${encadrant.prenom}" required>
 
-        </div>
-        <div class="sidebar_user_info">
-          <div class="icon_setting"></div>
-          <div class="user_profle_side">
-            <div class="user_img"><img class="img-responsive" src="images/layout_img/user_img.jpg" alt="#" /></div>
-            <div class="user_info">
-              <h6 th:text="${userRole}"></h6>
-              <h6 th:text="${username}"></h6>
-              <p><span class="online_animation"></span> Online</p>
-            </div>
+              <label>Genre :</label>
+              <input type="radio" id="genreFeminin" name="genre" value="Féminin"  th:field="${encadrant.genre}">
+              <label for="genreFeminin">Féminin</label>
+
+              <input type="radio" id="genreMasculin" name="genre" value="Masculin"  th:field="${encadrant.genre}">
+              <label for="genreMasculin">Masculin</label>
+
+              <label for="email">Email :</label>
+              <input type="email" id="email" name="email"   th:field="${encadrant.email}" required>
+
+              <label for="specialite">Spécialité :</label>
+              <select id="specialite" name="specialite"    th:field="${encadrant.specialite}" required>
+                <option value="Génie informatique">Génie informatique</option>
+                <option value="Génie industriel">Génie industriel</option>
+                <option value="Génie electrique">Génie Electrique</option>
+                <option value="Génie Civil">Génie Civil</option>
+                <option value="finance">Finance</option>
+
+              </select>
+
+              <input type="submit" value="Soumettre">
+            </form>
           </div>
-        </div>
-      </div>
-      <div class="sidebar_blog_2">
-        <h4>General</h4>
-        <ul class="list-unstyled components">
-          <li class="active">
-          <li><a th:href="@{/dashboardAdmin}"><i class="fa fa-home" aria-hidden="true"></i> <span>Dashboard</span></a></li>
-
-          </li>
-          <li><a th:href="@{/demandes}"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#f1f5f8}</style><path d="M40 48C26.7 48 16 58.7 16 72v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V72c0-13.3-10.7-24-24-24H40zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM16 232v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V232c0-13.3-10.7-24-24-24H40c-13.3 0-24 10.7-24 24zM40 368c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V392c0-13.3-10.7-24-24-24H40z"/></svg><span class="title">Liste Demandes </span></a></li>
-          <li><a th:href="@{/demandes-acceptees}"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#f1f5f8}</style><path d="M40 48C26.7 48 16 58.7 16 72v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V72c0-13.3-10.7-24-24-24H40zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM16 232v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V232c0-13.3-10.7-24-24-24H40c-13.3 0-24 10.7-24 24zM40 368c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V392c0-13.3-10.7-24-24-24H40z"/></svg><span class="title">Liste Demandes Acceptées</span></a></li>
-          <li><a th:href="@{/demandes-refusees}"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#f1f5f8}</style><path d="M40 48C26.7 48 16 58.7 16 72v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V72c0-13.3-10.7-24-24-24H40zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM16 232v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V232c0-13.3-10.7-24-24-24H40c-13.3 0-24 10.7-24 24zM40 368c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V392c0-13.3-10.7-24-24-24H40z"/></svg><span class="title">Liste Demandes Refusées</span></a></li>
-          <li><a th:href="@{/demandes-en-attente}"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#f1f5f8}</style><path d="M40 48C26.7 48 16 58.7 16 72v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V72c0-13.3-10.7-24-24-24H40zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM16 232v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V232c0-13.3-10.7-24-24-24H40c-13.3 0-24 10.7-24 24zM40 368c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V392c0-13.3-10.7-24-24-24H40z"/></svg><span class="title">Liste Demandes En attente</span></a></li>
-          <li>
-
-          <li>
-            <a th:href="@{/encadrants}" style="display: flex; align-items: center;">
-              <img src="images/edit.png" class="white-image" style="vertical-align: middle; height:1em;" >
-              <span class="title">Ajouter Encadrant</span>
-            </a>
-          </li>
-          <li><a th:href="@{/liste-encadrants}"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#f1f5f8}</style><path d="M40 48C26.7 48 16 58.7 16 72v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V72c0-13.3-10.7-24-24-24H40zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM16 232v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V232c0-13.3-10.7-24-24-24H40c-13.3 0-24 10.7-24 24zM40 368c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V392c0-13.3-10.7-24-24-24H40z"/></svg><span class="title">Liste Encadrants</span></a></li>
-
-
-          <ul class="collapse list-unstyled" id="element">
-
-          </ul>
-          </li>
-
-          <ul class="collapse list-unstyled" id="apps">
-
-            <li><a href="calendar.html">> <span>Calendar</span></a></li>
-
-          </ul>
-          </li>
-
-          <li>
-            <a href="contact.html">
-              <i class="fa fa-paper-plane red_color"></i> <span>Contact</span></a>
-          </li>
-          <li class="active">
-
-            <ul class="collapse list-unstyled" id="additional_page">
-
-            </ul>
-          </li>
-          <li><a href="map.html"><i class="fa fa-map purple_color2"></i> <span>Map</span></a></li>
-          <li><a href="settings.html"><i class="fa fa-cog yellow_color"></i> <span>Settings</span></a></li>
-        </ul>
-      </div>
-    </nav>
-    <!-- end sidebar -->
-    <!-- right content -->
-    <div id="content">
-      <!-- topbar -->
-      <div class="topbar">
-        <nav class="navbar navbar-expand-lg navbar-light">
-          <div class="full">
-            <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
-
-            <div class="right_topbar">
-              <div class="icon_info">
-                <ul>
-                  <li ><a href="#"  id="notificationIcon" ><i class="fa fa-bell-o"></i><span class="badge" id="notificationBadge"></span></a></li>
-
-                  <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge" >3</span></a></li>
-                </ul>
-                <ul class="user_profile_dd">
-                  <li>
-                    <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="images/layout_img/user_img.jpg" alt="#" /><span class="name_user"  th:text="${username}"></span></a>
-                    <div class="dropdown-menu">
-                      <a class="dropdown-item" href="profile.html">My Profile</a>
-                      <form method="post" th:action="@{/logout}" >
-                        <button type="submit" class="logout-button">
-                          <span>Log Out</span> <i class="fa fa-sign-out"></i>
-                        </button>
-                      </form>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </nav>
-      </div>
-      <!-- end topbar -->
-      <!-- dashboard inner -->
-      <div class="midde_cont">
-        <div class="container-fluid">
-          <div class="row column_title">
-            <div class="col-md-12">
-              <div class="page_title">
-                <i class="fas fa-user-plus"></i>
-                <span  class="custom_title">Ajouter un Encadrant</span>
-              </div>
-            </div>
-          </div>
-
-          <div id="successAlert" class="alert alert-success" style="display: none;">Encadrant a bien été enregistrée.</div>
-
-          <div class="main">
-            <section class="signup">
-              <!-- <img src="images/signup-bg.jpg" alt=""> -->
-              <div class="container">
-                <div class="signup-content">
-                  <form  th:action="@{/save-encadrant}"   th:object="${encadrant}" method="post" class="signup-form" >
-                    <div class="form-row">
-                      <div class="form-group">
-                        <label for="nom">Nom</label>
-                        <input type="text" class="form-input" id="nom" placeholder="Nom"  th:field="${encadrant.nom}"  required/>
-                      </div>
-                      <div class="form-group">
-                        <label for="prenom">Prenom</label>
-                        <input type="text" class="form-input" id="prenom"  placeholder="Prénom"  th:field="${encadrant.prenom}"  required/>
-                      </div>
-                    </div>
-                    <div class="form-row">
-                      <div class="form-group form-radio">
-                        <label>Genre</label>
-                        <div class="form-flex">
-                          <label>
-                            <input type="radio" name="genre" value="masculin" checked="checked"  placeholder="Genre"   th:field="${encadrant.genre}" required/>
-                            Masculin
-                          </label>
-                          <label>
-                            <input type="radio" name="genre" value="féminin"  placeholder="Genre"  th:field="${encadrant.genre}" required/>
-                            Feminin
-                          </label>
-                        </div>
-                      </div>
-
-                    </div>
-                    <div class="form-row">
-                      <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-input" name="email" id="email"   placeholder="Email"  th:field="${encadrant.email}" required/>
-                      </div>
-                    </div>
-                    <div class="form-row">
-                      <div class="form-group">
-                        <label for="type">Spécialité </label>
-                        <div class="select-list">
-                          <select name="type" id="type"   placeholder="Type"  th:field="${encadrant.specialite}" required>
-                            <option value="Génie Informatique">Génie Informatique</option>
-                            <option value="Génie Civil">Génie Civil</option>
-                            <option value="Finance">Finance</option>
-                            <option value="Génie Electrique">Génie Electrique</option>
-                            <option value="Génie Industriel">Génie Industriel</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <input type="submit" name="submit" id="submit" class="form-submit" value="Submit"/>
-                    </div>
-                  </form>
-
-                  </form>
-
-                  <!-- Afficher la notification si l'attribut "notification" est présent -->
-
-
-                </div>
-              </div>
-            </section>
-          </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          <div class="row column1">
-            <div class="col-md-6 col-lg-4">
-              <div class="full white_shd margin_bottom_30">
-
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <div class="full white_shd margin_bottom_30">
-
-
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="full white_shd margin_bottom_30">
-
-            </div>
-          </div>
-        </div>
-
-
-      </div>
-    </div>
-  </div>
-  <!-- jQuery -->
-  <script src="js/jquery.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <!-- wow animation -->
-  <script src="js/animate.js"></script>
-  <!-- select country -->
-  <script src="js/bootstrap-select.js"></script>
-  <!-- owl carousel -->
-  <script src="js/owl.carousel.js"></script>
-  <!-- chart js -->
-  <script src="js/Chart.min.js"></script>
-  <script src="js/Chart.bundle.min.js"></script>
-  <script src="js/utils.js"></script>
-  <script src="js/analyser.js"></script>
-  <!-- nice scrollbar -->
-  <script src="js/perfect-scrollbar.min.js"></script>
-  <script>
-    var ps = new PerfectScrollbar('#sidebar');
-  </script>
-  <!-- custom js -->
-  <script src="js/custom.js"></script>
-
-  <!-- calendar file css -->
-  <script src="js/semantic.min.js"></script>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
-
-<script>
-   document.addEventListener("DOMContentLoaded", function () {
-      const notificationIcon = document.getElementById("notificationIcon");
-      const notificationBadge = document.getElementById("notificationBadge");
-
-      let notificationCount = 0;
-
-      notificationIcon.addEventListener("click", function () {
-         if (notificationCount > 0) {
-            alert("Votre demande a bien été enregistrée.");
-            notificationCount = 0;
-            notificationBadge.textContent = notificationCount;
-         }
-      });
-
-      // Vous pouvez appeler cette fonction chaque fois que vous enregistrez une demande
-      function incrementNotificationCount() {
-         notificationCount++;
-         notificationBadge.textContent = notificationCount;
-      }
-
-      // Appel de la fonction pour incrémenter le compteur lorsqu'une demande est enregistrée
-      // Ici, vous devez appeler cette fonction après avoir enregistré la demande avec succès
-      incrementNotificationCount();
-   });
-
-   function closeNotification() {
-      const notificationBox = document.querySelector(".notification-box");
-      notificationBox.style.display = "none";
-   }
-</script>
-
-----!-->
-
 
 
 </body>
