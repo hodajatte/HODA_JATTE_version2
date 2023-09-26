@@ -1,5 +1,6 @@
 package com.example.hoda_jatte_anissa.Service;
 
+import com.example.hoda_jatte_anissa.Entity.Demande;
 import com.example.hoda_jatte_anissa.Entity.Encadrant;
 import com.example.hoda_jatte_anissa.Repository.EncadrantRepository;
 
@@ -18,8 +19,10 @@ public interface EncadrantService {
 
 
 
-    public List<Encadrant> rechercherEncadrantParSpecialite(String SpecialiteRecherche);
+
 
 
     Encadrant updateEncadrant(Encadrant encadrant);
+
+    List<Encadrant> rechercherEncadrantParSpecialite(String specialiteRecherche);
 }

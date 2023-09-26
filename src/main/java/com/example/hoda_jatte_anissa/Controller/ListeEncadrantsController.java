@@ -23,13 +23,13 @@ public class ListeEncadrantsController {
         model.addAttribute("listeEncadrants", encadrants);
         return "liste-encadrants"; // Assurez-vous que le nom du modèle correspond à votre template Thymeleaf
     }
-    @GetMapping("/rechercher-encadrants")
+   /* @GetMapping("/rechercher-encadrants")
     public String rechercherEncadrants(@RequestParam(name = "specialite") String specialite, Model model) {
         // Écrivez le code pour rechercher les demandes en fonction du nom ici
         List<Encadrant> encadrants = encadrantService.rechercherEncadrantParSpecialite(specialite); // Remplacez cela par votre logique de recherche réelle
         model.addAttribute("listeEncadrants", encadrants);
         return "liste-encadrants";
-    }
+    }*/
 
 
 

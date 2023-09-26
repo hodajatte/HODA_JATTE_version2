@@ -30,10 +30,10 @@ public class EncadrantServiceImpl implements EncadrantService{
     }
 
 
-@Override
-    public List<Encadrant> rechercherEncadrantParSpecialite(String SpecialiteRecherche) {
+
+    public List<Encadrant> rechercherEncadrantParSpecialite(String specialiteRecherche) {
         // Utilisez votre repository pour rechercher les demandes par nom
-        return encadrantRepository.findBySpecialiteContaining(SpecialiteRecherche);
+        return encadrantRepository.findBySpecialiteContaining(specialiteRecherche);
     }
 
 @Override
