@@ -21,11 +21,25 @@ public class AuthController {
         this.userService = userService;
     }
 
-   /*@GetMapping("/confirmation")
-    public String conf(){
-        return "confirmation";
-    }*/
+   @GetMapping("/contact")
+    public String Contact(Model model){
+       Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+       String userRole = authentication.getAuthorities().iterator().next().getAuthority();
+       String username = authentication.getName();
+       model.addAttribute("userRole", userRole);
+       model.addAttribute("username", username);
+        return "contact";
+    }
 
+    @GetMapping("/map")
+    public String Map(Model model){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String userRole = authentication.getAuthorities().iterator().next().getAuthority();
+        String username = authentication.getName();
+        model.addAttribute("userRole", userRole);
+        model.addAttribute("username", username);
+        return "map";
+    }
    /* @GetMapping("/index1")
     public String Index1(){
         return "index1";

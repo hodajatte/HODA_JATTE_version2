@@ -21,6 +21,11 @@ public class EncadrantController {
 
     @GetMapping("/encadrants")
     public String showDemandeStageForm(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String userRole = authentication.getAuthorities().iterator().next().getAuthority();
+        String username = authentication.getName();
+        model.addAttribute("userRole", userRole);
+        model.addAttribute("username", username);
         model.addAttribute("encadrant", new Encadrant());
         return "encadrants"; // Assurez-vous que le nom du modèle correspond à votre template Thymeleaf
     }

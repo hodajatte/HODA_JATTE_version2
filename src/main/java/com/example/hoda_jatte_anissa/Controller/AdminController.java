@@ -39,6 +39,7 @@ public class AdminController {
     public String accepterDemande(@PathVariable Long demandeId) {
         demandeService.accepterDemande(demandeId);
         return "redirect:/demandes";
+
     }
 
     @PostMapping("/demande/{demandeId}/refuser")
