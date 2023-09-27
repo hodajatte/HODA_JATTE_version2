@@ -138,7 +138,7 @@
             <div class="col-md-12">
               <div class="page_title">
 
-                <div th:if="${#lists.isEmpty(resultatsRechercheAcceptees)}" class="centered-content">
+                <div th:if="${#lists.isEmpty(resultatsRechercheEnAttente)}" class="centered-content">
                   <div class="message-container">
                     <span class="message">"Aucun résultat trouvé pour la recherche!"</span>
                   </div>
@@ -170,7 +170,7 @@
           </tr>
           </thead>
           <tbody>
-          <tr th:each="demande:${resultatsRechercheAcceptees}">
+          <tr th:each="demande:${resultatsRechercheEnAttente}">
             <td th:text="${demande.id}"></td>
             <td th:text="${demande.nom}"></td>
             <td th:text="${demande.prenom}"></td>

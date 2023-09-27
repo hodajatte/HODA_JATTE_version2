@@ -150,18 +150,24 @@
                     <button type="submit" class="btn-search">
                       <i class="fas fa-search"></i> Rechercher
                     </button>
+
+
                   </div>
                 </form>
-                </div>
-
-
-
-                </div>
-
               </div>
+
+
+
             </div>
+
           </div>
-          <!-- Liste Demande -->
+        </div>
+
+
+
+        <div id="successAlert" class="alert alert-success" style="display: none;">Action Bien effectuée</div>
+
+      <!-- Liste Demande -->
           <div class="table-wrapper">
             <table class="fl-table">
               <thead>
@@ -196,17 +202,17 @@
                   <table>
                     <tr>
                       <td>
-                        <form th:action="@{/demande/{demandeId}/accepter(demandeId=${demande.id})}" method="post">
+                        <form th:action="@{/demande/{demandeId}/accepter(demandeId=${demande.id})}" method="post" >
                           <button class="button button-accept" type="submit">Accepter</button>
                         </form>
                       </td>
                       <td>
-                        <form th:action="@{/demande/{demandeId}/refuser(demandeId=${demande.id})}" method="post">
+                        <form th:action="@{/demande/{demandeId}/refuser(demandeId=${demande.id})}" method="post" >
                           <button class="button button-reject" type="submit">Refuser</button>
                         </form>
                       </td>
                       <td>
-                        <form th:action="@{/demande/{demandeId}/attente(demandeId=${demande.id})}" method="post">
+                        <form th:action="@{/demande/{demandeId}/attente(demandeId=${demande.id})}" method="post"  >
                           <button class="button button-pending" type="submit">Mettre en Attente</button>
                         </form>
                       </td>
@@ -248,6 +254,24 @@
     <script src="js/chart_custom_style1.js"></script>
 
 
+
+
+<script>
+  $(document).ready(function () {
+  // Code JavaScript pour afficher l'alerte de succès
+  if (window.location.href.indexOf("Success=True") > -1) {
+  $("#successAlert").show();
+
+  // Ajouter un délai de 2 secondes avant de masquer l'alerte
+  setTimeout(function () {
+  $("#successAlert").hide();
+  }, 2000); // 2000 millisecondes équivalent à 2 secondes
+  }
+  });
+
+
+
+  </script>
 
 </div>
 </div>

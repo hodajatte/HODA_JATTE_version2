@@ -38,6 +38,10 @@ public class SpringSecurity {
                                 .requestMatchers("/demandes-en-attente").hasAnyAuthority("Admin")
                                 .requestMatchers("/encadrants").hasAnyAuthority("Admin")
                                 .requestMatchers("/liste-encadrants").hasAnyAuthority("Admin")
+                                .requestMatchers("/resultats-recherches-acceptees").hasAnyAuthority("Admin")
+                                .requestMatchers("/resultats-recherches-refusees").hasAnyAuthority("Admin")
+                                .requestMatchers("/resultats-enAttente").hasAnyAuthority("Admin")
+
                                 .requestMatchers("/Index-User").hasAnyAuthority("User")
                                 .requestMatchers("/contact").hasAnyAuthority("User")
                                 .requestMatchers("/map").hasAnyAuthority("User")

@@ -124,6 +124,13 @@ public class DemandeServiceImpl implements DemandeService {
         return demandeRepository.findByEtablissementContaining(etablissementRecherche);
     }
 
+
+    public List<Demande> rechercherDemandesParfiliere(String FiliereRecherche) {
+        // Utilisez votre repository pour rechercher les demandes acceptees  par etablissemnt
+        return demandeRepository.findByFiliereContaining(FiliereRecherche);
+    }
+
+
    /* public List<Demande> rechercherParEtablissement(String etablissement) {
         return demandeRepository.findByEtablissement(etablissement);
     }*/
@@ -133,6 +140,10 @@ public class DemandeServiceImpl implements DemandeService {
         return demandeRepository.findByNomContaining(Recherche);
     }
 
+
+   /*public List<Demande> rechercherDemandesPar_nom(String NomRecherche){
+        return demandeRepository.finByNom_containing(NomRecherche);
+   }*/
 }
 
 

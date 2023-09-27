@@ -38,20 +38,20 @@ public class AdminController {
     @PostMapping("/demande/{demandeId}/accepter")
     public String accepterDemande(@PathVariable Long demandeId) {
         demandeService.accepterDemande(demandeId);
-        return "redirect:/demandes";
+        return "redirect:/demandes?Success=True";
 
     }
 
     @PostMapping("/demande/{demandeId}/refuser")
     public String refuserDemande(@PathVariable Long demandeId) {
         demandeService.refuserDemande(demandeId);
-        return "redirect:/demandes";
+        return "redirect:/demandes?Success=True";
     }
 
     @PostMapping("/demande/{demandeId}/attente")
     public String mettreEnAttente(@PathVariable Long demandeId) {
         demandeService.mettreEnAttente(demandeId);
-        return "redirect:/demandes";
+        return "redirect:/demandes?Success=true";
     }
 
     @GetMapping("/demandes-acceptees")
@@ -129,7 +129,6 @@ public class AdminController {
     @GetMapping("/rechercher-demandes-acceptees")
     public String rechercherDemandesParEtablissement(@RequestParam(name = "etablissement")String etablissementRecherche, Model model) {
         List<Demande> resultatsRechercheAcceptees = demandeService.rechercherDemandesParEtablissement(etablissementRecherche);
-
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String userRole = authentication.getAuthorities().iterator().next().getAuthority();
         String username = authentication.getName();
@@ -140,6 +139,40 @@ public class AdminController {
 
         return "resultats-recherches-acceptees";
     }
+
+
+    @GetMapping("/rechercher-demandes-refusees")
+    public String rechercherDemandesParFiliere(@RequestParam(name = "filiere")String FiliereRecherche, Model model) {
+        List<Demande> resultatsRechercheRefusees = demandeService.rechercherDemandesParfiliere(FiliereRecherche);
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String userRole = authentication.getAuthorities().iterator().next().getAuthority();
+        String username = authentication.getName();
+
+        model.addAttribute("userRole", userRole);
+        model.addAttribute("username", username);
+        model.addAttribute("resultatsRechercheRefusees", resultatsRechercheRefusees);
+
+        return "resultats-recherches-Refusees";
+    }
+
+
+
+    /*@GetMapping("/rechercher-demandes-enAttente")
+    public String rechercherDemandesParnom(@RequestParam(name = "nom")String NomRecherche, Model model) {
+        List<Demande> resultatsRechercheEnAttente = demandeService.rechercherDemandesPar_nom(NomRecherche);
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String userRole = authentication.getAuthorities().iterator().next().getAuthority();
+        String username = authentication.getName();
+
+        model.addAttribute("userRole", userRole);
+        model.addAttribute("username", username);
+        model.addAttribute("resultatsRechercheEnAttente", resultatsRechercheEnAttente);
+
+        return "resultats-recherches-enAttente";
+    }*/
+
 
 
 

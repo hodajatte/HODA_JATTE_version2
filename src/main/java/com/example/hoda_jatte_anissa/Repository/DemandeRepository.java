@@ -13,6 +13,10 @@ public interface DemandeRepository extends JpaRepository<Demande, Long> {
     List<Demande> findByNomContaining(String nom);
     List<Demande> findByEtablissementContaining(String etablissemntRecherche);
 
+    List<Demande> findByFiliereContaining(String filiereRecherche);
+
+    /*List<Demande> finByNom_containing(String NomRecherche);*/
+
     /*List<Demande> findByEtablissement(String etablissement);*/
 }
 
